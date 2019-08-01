@@ -1,7 +1,8 @@
 // this is sign handle middleware
-import md5 from 'md5'
+import * as md5 from 'md5'
+import baseConfig from '../config/base.config'
 export default (json) => {
-    let signpass = 'ahr0cdovl3rlc3ryzxnvdxjjzs5qaw55b3vqaweubmv0l3r'
+    let signpass = baseConfig.signKey
     let data = json || {}
     let sign = ''
     let str = ''

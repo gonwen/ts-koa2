@@ -1,5 +1,6 @@
 // 案例
-const baseUrl:string = 'http://admin.ac-mall.net'
+import baseConfig from '../../../config/base.config'
+const baseUrl:string = baseConfig.serverBaseUrl
 const prefixbase:string = '/case'
 const configData: object = {
     dec: '案例板块',
