@@ -10,7 +10,7 @@ const app = new Koa()
 async function start() {
 
     const host:string = packageConfig.config.server.host || '0.0.0.0'
-    const port:number = packageConfig.config.server.port || 3091
+    const port:number = packageConfig.config.server.port || 3092
 
     app.use(bodyparser())
     createAllRouter(app)

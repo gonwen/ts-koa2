@@ -1,3 +1,5 @@
+import dataParse from '../../utils/dataParse/index'
+import baseConfig from '../../config/base.config'
 export default (ores, cfig) => {
     let data:any = null
     let msg:string = ''
@@ -30,30 +32,8 @@ export default (ores, cfig) => {
             let dvlType = (dvl && dvl.constructor) || ''
             if (dvl) {
                 let sig = config.sig
-                if (sig) {
-                    switch (dtp) {
-                        case 'A':
-                            if (dvlType === Array) {
-                                //
-                                data = []
-                                dvl.forEach(item => {
-                                    let itemJson = {}
-                                    sig.forEach(its => {
-                                        itemJson[its.nk] = item[its.ok] || ''
-                                    })
-                                    data.push(itemJson)
-                                })
-                            }
-                            break
-                        case 'J':
-                            break
-                        case 'B':
-                            break
-                        case 'S':
-                            break
-                        case 'N':
-                            break
-                    }
+                if (sig && baseConfig.typeConfig[dtp]) {
+                    dataParse[dtp](dvl, sig)
                 } else data = dvl
             }
         }

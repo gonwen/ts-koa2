@@ -1,3 +1,3 @@
-export default (val) => {
-    return val
+export default (data, sig) => {
+    return data
 }

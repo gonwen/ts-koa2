@@ -15,7 +15,7 @@ const createAllRouter = async (app) => {
         let apiItmes = require(__dirname + routerDirs + '/' + item)
         apiItmes.api.forEach(aitem => {
             let nmd = aitem.nmd || 'get'
-            router[nmd](aitem.url, async (ctx) => {
+            router[nmd](((apiItmes.path || '') + aitem.url), async (ctx) => {
                 let md = ctx.method.toLowerCase()
                 if (md === 'get' || md === 'post') {
                     let oSign = ctx.req.headers.nd_sign

@@ -1,14 +1,14 @@
-// 案例
+// 示例
 import baseConfig from '../../../config/base.config'
 import getFileName from '../../../utils/getFileName'
 const baseUrl:string = baseConfig.serverBaseUrl
 const prefixbase:string = '/' + getFileName(__filename)
 const configData: object = {
-    dec: '案例板块',
+    dec: '测试示例展示',
     path: prefixbase,
     api: [
         {
-            url: '/list',
+            url:  '/list',
             org: baseUrl + '/shop/housing/zcmsinterface/getMainNewsData.jhtml?catalogIds=15122&showCount=10',
             pdt: {
                 dt: {ky: 'result', ty: 'A'},
