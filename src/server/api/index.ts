@@ -3,7 +3,7 @@ import * as qs from 'qs'
 import * as fs from 'fs'
 import * as Router from 'koa-router'
 import apiConfigParseData from './apiConfigparse'
-import baseConfig from '../../config/base.config'
+import * as baseConfig from '../../config/base.config'
 import getSignInfo from '../../utils/sign'
 const router = new Router({
     prefix: baseConfig.apiPath
@@ -21,7 +21,7 @@ const createAllRouter = async (app) => {
                     let oSign = ctx.req.headers.nd_sign
                     let odata = md === 'post' ? ctx.request.body : ctx.query
                     let nSign = getSignInfo(odata)
-                    if (oSign === nSign) {
+                    if (!aitem.vad || (!!aitem.vad && oSign === nSign)) {
                         let ores = null
                         let query = odata
                         try {

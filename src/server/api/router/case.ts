@@ -1,5 +1,5 @@
 // 案例
-import baseConfig from '../../../config/base.config'
+import * as baseConfig from '../../../config/base.config'
 import getFileName from '../../../utils/getFileName'
 const baseUrl:string = baseConfig.serverBaseUrl
 const prefixbase:string = '/' + getFileName(__filename)

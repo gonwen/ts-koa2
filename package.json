@@ -11,7 +11,8 @@
         }
     },
     "scripts": {
-        "dev": "cross-env nodemon --watch './src' -e ts,tsx --exec 'ts-node' ./src/server/index.ts"
+        "dev": "cross-env nodemon --inspect --watch './src' -e ts,tsx --exec 'node -r ts-node/register' ./src/server/index.ts",
+        "debug": "cross-env nodemon --inspect-brk --watch './src' -e ts,tsx --exec 'node -r ts-node/register' ./src/server/index.ts"
     },
     "dependencies": {
         "@types/qs": "^6.5.3",

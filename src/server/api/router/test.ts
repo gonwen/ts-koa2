@@ -1,5 +1,5 @@
 // 示例
-import baseConfig from '../../../config/base.config'
+import * as baseConfig from '../../../config/base.config'
 import getFileName from '../../../utils/getFileName'
 const baseUrl:string = baseConfig.serverBaseUrl
 const prefixbase:string = '/' + getFileName(__filename)
@@ -33,7 +33,8 @@ const configData: object = {
         },
         {
             url: '/tree',
-            org: baseUrl + '/jzm/api/v1/anon/JzmGoodsClassManage/getTreeByJson'
+            org: baseUrl + '/jzm/api/v1/anon/JzmGoodsClassManage/getTreeByJson',
+            vad: true
         },
         {
             url: '/detailpost',

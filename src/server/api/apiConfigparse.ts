@@ -1,5 +1,5 @@
-import dataParse from '../../utils/dataParse/index'
-import baseConfig from '../../config/base.config'
+import * as dataParse from '../../utils/dataParse/index'
+import * as baseConfig from '../../config/base.config'
 export default (ores, cfig) => {
     let data:any = null
     let msg:string = ''
@@ -33,7 +33,7 @@ export default (ores, cfig) => {
             if (dvl) {
                 let sig = config.sig
                 if (sig && baseConfig.typeConfig[dtp]) {
-                    dataParse[dtp](dvl, sig)
+                    data = dataParse[dtp](dvl, sig)
                 } else data = dvl
             }
         }
