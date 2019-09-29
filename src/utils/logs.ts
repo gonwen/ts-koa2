@@ -1,6 +1,6 @@
 // this is logger handle middleware
 import * as log4js from 'log4js'
-import * as logConfig from '../config/log.config'
+import logConfig from '../config/log.config'
 
 log4js.configure(logConfig)
 
@@ -106,4 +106,4 @@ const formatError = function(ctx, err, resTime) {
     logText += '*************** error log end ***************' + '\n'
     return logText
 }
-export = log
+export default log

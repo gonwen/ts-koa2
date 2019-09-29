@@ -1,23 +1,24 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2017",
-    "noImplicitAny": false,
-    "outDir": "./dist",
-    "sourceMap": false,
-    "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true,
-    "strictFunctionTypes": false,
-    "typeRoots": [
-      "./typings/*",
-      "node_modules/@types"
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": false,
+        "outDir": "./dist",
+        "sourceMap": false,
+        "strictPropertyInitialization": false,
+        "allowSyntheticDefaultImports": true,
+        "strictFunctionTypes": false,
+        "esModuleInterop": true
+//        "typeRoots": [
+//            "./typings/*",
+//            "node_modules/@types"
+//        ]
+    },
+    "include": [
+        "./src/**/*",
+        "./typings/**/*"
+    ],
+    "exclude": [
+        "node_modules"
     ]
-  },
-  "include": [
-    "./src/**/*",
-    "./typings/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
 }

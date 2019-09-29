@@ -1,5 +1,5 @@
-import * as dataParse from '../../utils/dataParse/index'
-import * as baseConfig from '../../config/base.config'
+import dataParse from '../../utils/dataParse/index'
+import baseConfig from '../../config/base.config'
 export default (ores, cfig) => {
     let data:any = null
     let msg:string = ''

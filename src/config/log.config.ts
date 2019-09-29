@@ -70,4 +70,4 @@ const logConfig = {
     },
     baseLogPath: baseLogPath
 }
-export = logConfig
+export default logConfig

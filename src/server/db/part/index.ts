@@ -1,0 +1,41 @@
+import mdb from 'mongoose'
+
+let partSchma = new mdb.Schema({
+    createUserId: Number,
+    familyComments: Array,
+    collectionNum: Number,
+    familyClassId: Number,
+    isCollection: Boolean,
+    modelViewResources: Object,
+    modifyUserId: Number,
+    collectNum: Number,
+    orderNum: Number,
+    delFlag: Number,
+    componentPracticality: Number,
+    fabulousNum: Number,
+    componentInformation: Number,
+    clickNum: Number,
+    id: Number,
+    satisfaction: Number,
+    commentNum: Number,
+    forwardNum: Number,
+    componentBeauty: Number,
+    downLoadNum: Number,
+    browseNum: Number,
+    createUserName: String,
+    modifyUserName: String,
+    familyResourceType: String,
+    familyName: String,
+    convertStatus: String,
+    createDate: String,
+    modifyDate: String,
+    familyNo: String,
+    show3DUrl: String,
+    authority: String,
+    familyStatus: String,
+    modelDownLoadResources: Array,
+    otherFileResources: Array,
+    model3DViewResources: Array
+})
+
+export default mdb.model('Part',partSchma)

@@ -1,15 +1,15 @@
 import axios from 'axios'
-import * as qs from 'qs'
-import * as fs from 'fs'
-import * as Router from 'koa-router'
+import { stringify as qsStringify} from 'qs'
+import {readdirSync} from 'fs'
+import  Router from 'koa-router'
 import apiConfigParseData from './apiConfigparse'
-import * as baseConfig from '../../config/base.config'
+import baseConfig from '../../config/base.config'
 import getSignInfo from '../../utils/sign'
 const router = new Router({
     prefix: baseConfig.apiPath
 })
 let routerDirs:string = '/router'
-let routers = fs.readdirSync(__dirname + routerDirs)
+let routers = readdirSync(__dirname + routerDirs)
 const createAllRouter = async (app) => {
     routers.forEach(item => {
         let apiItmes = require(__dirname + routerDirs + '/' + item)
@@ -21,14 +21,18 @@ const createAllRouter = async (app) => {
                     let oSign = ctx.req.headers.nd_sign
                     let odata = md === 'post' ? ctx.request.body : ctx.query
                     let nSign = getSignInfo(odata)
-                    if (!aitem.vad || (!!aitem.vad && oSign === nSign)) {
+                    if (aitem.vad === false || (aitem.vad !== false && oSign === nSign)) {
                         let ores = null
                         let query = odata
-                        try {
-                            let omd = (aitem.omd && aitem.omd.toLowerCase()) || 'get'
-                            if (omd === 'post') ores = await axios.post(aitem.org, qs.stringify(query))
-                            else ores = await axios.get(aitem.org, {params: query || {}})
-                        } catch {}
+                        if (aitem.type === 'DB') {
+                            ores = await aitem.callback(query)
+                        } else {
+                            try {
+                                let omd = (aitem.omd && aitem.omd.toLowerCase()) || 'get'
+                                if (omd === 'post') ores = await axios.post(aitem.org, qsStringify(query))
+                                else ores = await axios.get(aitem.org, {params: query || {}})
+                            } catch {}
+                        }
                         ctx.body = apiConfigParseData(ores, aitem)
                     } else {
                         ctx.body = {

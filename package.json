@@ -7,7 +7,7 @@
     "config": {
         "server": {
             "host": "0.0.0.0",
-            "port": "3092"
+            "port": "3093"
         }
     },
     "scripts": {
@@ -22,7 +22,7 @@
         "koa-router": "^7.4.0",
         "log4js": "^4.5.1",
         "md5": "^2.2.1",
-        "mongodb": "^3.3.0-beta2",
+        "mongoose": "^5.7.1",
         "qs": "^6.7.0"
     },
     "devDependencies": {

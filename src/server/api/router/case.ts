@@ -1,5 +1,5 @@
 // 案例
-import * as baseConfig from '../../../config/base.config'
+import baseConfig from '../../../config/base.config'
 import getFileName from '../../../utils/getFileName'
 const baseUrl:string = baseConfig.serverBaseUrl
 const prefixbase:string = '/' + getFileName(__filename)
@@ -29,7 +29,8 @@ const configData: object = {
             sig: [
                 {ok: 'familyZhName', nk: 'name', rq: 1},
                 {ok: 'id', nk: 'id', rq: 1}
-            ]
+            ],
+            vad: false
         },
         {
             url: '/tree',
