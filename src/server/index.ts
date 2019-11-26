@@ -42,5 +42,4 @@ async function start() {
     app.listen(port, host)
     log.c(`server start succuss about: ${host}:${port}`)
 }
-
 start()

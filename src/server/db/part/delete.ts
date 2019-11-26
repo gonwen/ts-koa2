@@ -18,7 +18,7 @@ export default async (res) => {
                     data.flag = true
                 } else data.msg = '删除失败'
             })
-        } else data.msg = '不能为空'
+        } else data.msg = 'ids不能为空'
     } catch (e) {
         data.data = e
         data.msg = e.message
