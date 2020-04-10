@@ -21,6 +21,9 @@ const log = {
     },
     c (info) {
         if (info) consoleLogger.info(formatInfo(info))
+    },
+    oc (err) {
+        if (err) errorLogger.error(formatOriginError(err))
     }
 }
 
@@ -98,6 +101,19 @@ const formatError = function(ctx, err, resTime) {
     logText +=  '\n' + '*************** error log start ***************' +  '\n'
     // 添加请求日志
     logText += formatReqLog(ctx, resTime).toString()
+    // 错误名称
+    logText += 'err name: ' + err.name +  '\n'
+    // 错误详情
+    logText += 'err message: ' + err.stack +  '\n'
+    // 错误信息结束
+    logText += '*************** error log end ***************' + '\n'
+    return logText
+}
+// 格式化错误日志
+const formatOriginError = function(err) {
+    let logText:string = ''
+    // 错误信息开始
+    logText +=  '\n' + '*************** error log start ***************' +  '\n'
     // 错误名称
     logText += 'err name: ' + err.name +  '\n'
     // 错误详情
