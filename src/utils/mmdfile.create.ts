@@ -7,10 +7,11 @@ interface mmdItemInfo {
     node?: []
 }
 
-class CreateMmdfile {
+export default class CreateMmdfile {
 
     private type: string = 'J'
     private target: string = ''
+    jsonInfo: any = []
     constructor(type?: string, target?: string) {
         this.type = type
         this.target = target
@@ -116,11 +117,12 @@ class CreateMmdfile {
         })
         this.parseSplice(tree, 2)
         console.log('***')
+        this.jsonInfo = tree
         return tree
     }
 
 }
 
 const createMmd = new CreateMmdfile()
-const filename = 'README' // README   readme_6_0  readme
+const filename = 'readme_6_0' // README   readme_6_0  readme
 createMmd.readFile(path.join(__dirname, '../../') + `/${filename}.mmd`)
