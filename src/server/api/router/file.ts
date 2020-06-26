@@ -1,4 +1,5 @@
 // person
+import grabWebFile from '../../../utils/grabWebFile'
 import getFileName from '../../../utils/getFileName'
 import CreateFileTree from '../../../utils/fileTree'
 import {readFile, readFileSync, writeFileSync} from 'fs'
@@ -65,6 +66,32 @@ const configData: object = {
                 let data: any = ''
                 try {
                     data = await writeFileSync(path, value,'utf8')
+                    code = 0
+                    msg = 'succuss'
+                    flag = true
+                } catch (e) {}
+                return {
+                    data: {
+                        code,
+                        flag,
+                        msg,
+                        data
+                    }
+                }
+            },
+            vad: false
+        },
+        {
+            url: '/fileByUrl',
+            type: 'DB',
+            async callback (res) {
+                let url = res.url
+                let flag = false
+                let msg = 'no found file'
+                let code = -1
+                let data: any = ''
+                try {
+                    data = await grabWebFile(url)
                     code = 0
                     msg = 'succuss'
                     flag = true

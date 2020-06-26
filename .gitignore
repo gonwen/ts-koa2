@@ -90,3 +90,5 @@ sw.*
 # training
 src/training
 temp
+
+package-lock.json
