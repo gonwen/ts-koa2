@@ -11,9 +11,13 @@ export default async (url: string, type: string = 'blob') => {
                 chunks.push(chunk)
             })
             res.on('end', (err) => {
-                const data = Buffer.concat(chunks, size)
-                const base64Img = 'data:' + mineTypes.lookup(url) + ';base64,' + data.toString('base64')
-                resolve(base64Img)
+                if (err) {
+                    reject(err)
+                } else {
+                    const data = Buffer.concat(chunks, size)
+                    const base64Img = 'data:' + mineTypes.lookup(url) + ';base64,' + data.toString('base64')
+                    resolve(base64Img)
+                }
             })
         })
     })
