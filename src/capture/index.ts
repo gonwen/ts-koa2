@@ -2,7 +2,7 @@ import path from 'path'
 import puppeteer from "puppeteer"
 import mineTypes from 'mime-types'
 
-type Config = {
+export type Config = {
     chromium: string
     webUrl: string
     saveUrl: string

@@ -1,5 +1,5 @@
 // person
-import Puppeteer from '../../../capture'
+import Puppeteer, {Config} from '../../../capture'
 import getFileName from '../../../utils/getFileName'
 const prefixbase:string = '/' + getFileName(__filename)
 const configData: object = {
@@ -10,18 +10,24 @@ const configData: object = {
             url: '/png',
             type: 'DB',
             async callback (res) {
-                let url = res.url
+                const webUrl = res.url
+                const saveType = res.format || 'png'
+                const width = res.w
+                const height = res.h
                 let flag = false
                 let msg = 'no found file'
                 let code = -1
                 let data: any = ''
                 try {
-                    const pt = new Puppeteer({
+                    const query: Config = {
                         chromium: 'E:\\\chrome-win\\chrome.exe',
-                        webUrl: url,
                         saveUrl: '',
-                        saveType: 'png'
-                    })
+                        webUrl,
+                        saveType,
+                        width,
+                        height
+                    }
+                    const pt = new Puppeteer(query)
                     data = await pt.init()
                     code = 0
                     msg = 'succuss'
