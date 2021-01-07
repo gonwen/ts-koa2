@@ -5,7 +5,6 @@ import log from '../utils/logs'
 import errorMiddleware from '../utils/error'
 import db from './db/index'
 const packageConfig = require('../../package.json')
-import training from '../training/index'
 const app = new Koa()
 
 const start = async () => {
@@ -58,6 +57,3 @@ const start = async () => {
 }
 // async function starts() {}
 start()
-
-// training ******
-let fTraining = training
